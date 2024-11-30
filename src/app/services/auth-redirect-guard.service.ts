@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
@@ -15,12 +11,12 @@ export class AuthRedirectGuardService {
     private router: Router,
   ) {}
 
-  public canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
-  ): boolean | Promise<boolean> {
-    return (
-      !this.authentication.getUserEmail() || this.router.navigate(['/main'])
-    );
+  public canActivate(): boolean | Promise<boolean> {
+    const userEmail = this.authentication.getUserEmail();
+    if (userEmail) {
+      this.router.navigate(['/main']);
+      return false;
+    }
+    return true;
   }
 }

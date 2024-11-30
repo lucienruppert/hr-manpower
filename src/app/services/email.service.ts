@@ -9,7 +9,9 @@ import { EmailSendingResult } from "../types";
   providedIn: "root",
 })
 export class EmailService {
-  private baseUrl: string = environment.BASE_URL;
+  private readonly baseUrl: string = environment.BASE_URL;
+  private readonly PROJECT_ID = "1";
+  private readonly PROJECT_NAME = "hr";
 
   constructor(
     private http: HttpClient,
@@ -19,33 +21,40 @@ export class EmailService {
   public async addEmail(email: string): Promise<string> {
     const formData = new FormData();
     formData.append("email", email);
-    formData.append("owner", '1');
-    formData.append("project", 'hr');
+    formData.append("owner", this.PROJECT_ID);
+    formData.append("project", this.PROJECT_NAME);
+
     try {
       const result$ = this.http.post<string>(
         `${this.baseUrl}/email/add`,
         formData
       );
-      const result = await firstValueFrom(result$);
-      return result;
+      return await firstValueFrom(result$);
     } catch (error: unknown) {
-      const typedError = error as HttpErrorResponse;
-      if (typedError.error["errors"]) throw typedError.error["errors"];
-      return typedError.error["errors"];
+      if (error instanceof HttpErrorResponse && error.error?.errors) {
+        throw error.error.errors;
+      }
+      throw new Error("An unexpected error occurred while adding email");
     }
   }
 
   public async sendEmail(): Promise<EmailSendingResult> {
     const email = this.authentication.getUserEmail();
+    if (!email) {
+      throw new Error("No user email found");
+    }
+
     try {
-      const result$ = this.http.post<string>(`${this.baseUrl}/email/send`, {
-        email,
-      });
-      return (await firstValueFrom(result$)) as unknown as EmailSendingResult;
+      const result$ = this.http.post<EmailSendingResult>(
+        `${this.baseUrl}/email/send`,
+        { email }
+      );
+      return await firstValueFrom(result$);
     } catch (error: unknown) {
-      const typedError = error as HttpErrorResponse;
-      if (typedError.error["errors"]) throw typedError.error["errors"];
-      return typedError.error["errors"];
+      if (error instanceof HttpErrorResponse && error.error?.errors) {
+        throw error.error.errors;
+      }
+      throw new Error("An unexpected error occurred while sending email");
     }
   }
 }

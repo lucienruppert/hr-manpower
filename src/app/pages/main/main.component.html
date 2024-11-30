@@ -1,10 +1,10 @@
-<sidebar></sidebar>
+<app-sidebar></app-sidebar>
 @if (userRole === 'employer') {
-  <employer-view></employer-view>
+  <app-employer-view></app-employer-view>
 }
 @if (userRole === 'provider') {
-  <provider-view></provider-view>
+  <app-hr-provider-view></app-hr-provider-view>
 }
 @if (userRole === 'admin') {
-  <admin-view></admin-view>
+  <app-admin-view></app-admin-view>
 }

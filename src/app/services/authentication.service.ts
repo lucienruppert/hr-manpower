@@ -2,7 +2,6 @@ import { Router } from "@angular/router";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
-//import { CookieService } from "ngx-cookie-service";
 import { environment } from "../environment";
 import { User } from "../types";
 
@@ -13,13 +12,16 @@ export class AuthenticationService {
   public isLoggedIn$ = new BehaviorSubject<boolean>(false);
   public userRole$ = new BehaviorSubject<string>("");
   private baseUrl: string = environment.BASE_URL;
+  private readonly EMAIL_KEY = "hr_email";
 
   constructor(
     private http: HttpClient,
-    //private cookieService: CookieService,
     private router: Router
   ) {
-    if (localStorage.getItem("email")) this.isLoggedIn$.next(true);
+    const storedEmail = localStorage.getItem(this.EMAIL_KEY);
+    if (storedEmail) {
+      this.isLoggedIn$.next(true);
+    }
   }
 
   public async login(email: string, password: string): Promise<User> {
@@ -28,17 +30,17 @@ export class AuthenticationService {
       const result$ = this.http.post<User>(`${this.baseUrl}/login`, formData);
       const userData = await firstValueFrom(result$);
 
-      localStorage.setItem("hr_email", userData.email);
+      localStorage.setItem(this.EMAIL_KEY, userData.email);
       this.isLoggedIn$.next(true);
       this.userRole$.next(userData.role);
 
       this.router.navigate(["/main"]);
       return userData;
     } catch (error: unknown) {
-      const typedError = error as HttpErrorResponse;
-      if (typedError.error["errors"])
-        throw typedError.error["errors"].join(" ");
-      return typedError.error["errors"];
+      if (error instanceof HttpErrorResponse && error.error?.errors) {
+        throw error.error.errors.join(" ");
+      }
+      throw new Error("An unexpected error occurred during login");
     }
   }
 
@@ -50,29 +52,27 @@ export class AuthenticationService {
   }
 
   public logout(): void {
-    this.logoutonClient();
+    this.logoutOnClient();
     this.logoutOnServer();
     this.router.navigate(["/"]);
   }
 
-  public logoutonClient(): void {
+  private logoutOnClient(): void {
     this.isLoggedIn$.next(false);
-    localStorage.removeItem("hr_email");
-    //this.cookieService.delete("PHPSESSID");
-    //this.cookieService.delete("PHPSESSID", "/", "luciendelmar.com");
+    this.userRole$.next("");
+    localStorage.removeItem(this.EMAIL_KEY);
   }
 
-  public async logoutOnServer(): Promise<void> {
+  private async logoutOnServer(): Promise<void> {
     try {
       const result$ = this.http.post(`${this.baseUrl}/logout`, {});
-      const response = await firstValueFrom(result$);
-      console.log(response);
+      await firstValueFrom(result$);
     } catch (error) {
       console.error("Error logging out:", error);
     }
   }
 
-  public getUserEmail(): string {
-    return localStorage.getItem("hr_email")!;
+  public getUserEmail(): string | null {
+    return localStorage.getItem(this.EMAIL_KEY);
   }
 }
