@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-employerView',
+  selector: 'employer-view',
   templateUrl: './employerView.component.html',
   styleUrls: ['./employerView.component.css']
 })

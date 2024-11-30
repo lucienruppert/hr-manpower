@@ -1,9 +1,8 @@
 
-**Basic Module and Page Structure**
+**View routing change for employer and hrProvider**
 
-[x] Home page 
-[x] Login component
-[x] Menu
-[x] Main
-[x] View
+[x] Create users in db
+[x] Show different view for different user types
+[x] Protect against changing the role in the frontend
+
 

@@ -18,11 +18,11 @@ export const routes: Routes = [
     canActivate: [GeneralRouteGuardService],
     children: [
       {
-        path: "",
+        path: "employer-view",
         component: EmployerViewComponent,
       },
       {
-        path: "",
+        path: "provider-view",
         component: HrProviderViewComponent,
       },
     ],
