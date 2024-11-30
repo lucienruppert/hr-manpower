@@ -1,19 +1,18 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
 
-import { EmployerViewComponent } from './employerView.component';
+import { EmployerViewComponent } from "./employer-view.component";
 
-describe('EmployerViewComponent', () => {
+describe("EmployerViewComponent", () => {
   let component: EmployerViewComponent;
   let fixture: ComponentFixture<EmployerViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmployerViewComponent ]
-    })
-    .compileComponents();
+      declarations: [EmployerViewComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,7 +21,7 @@ describe('EmployerViewComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

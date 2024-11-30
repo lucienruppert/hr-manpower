@@ -1,8 +1,8 @@
 import { NavigationComponent } from "./../../components/navigation/navigation.component";
 import { Component } from "@angular/core";
 import { AuthenticationService } from "../../services/authentication.service";
-import { EmployerViewComponent } from "../../components/views/employerView/employerView.component";
-import { HrProviderViewComponent } from "../../components/views/hrProviderView/hrProviderView.component";
+import { EmployerViewComponent } from "../../components/views/employer-view/employer-view.component";
+import { HrProviderViewComponent } from "../../components/views/hr-provider-view/hr-provider-view.component";
 import { AdminViewComponent } from "../../components/views/admin-view/admin-view.component";
 
 @Component({
@@ -14,7 +14,7 @@ import { AdminViewComponent } from "../../components/views/admin-view/admin-view
     NavigationComponent,
     EmployerViewComponent,
     HrProviderViewComponent,
-    AdminViewComponent
+    AdminViewComponent,
   ],
 })
 export class MainComponent {
@@ -25,5 +25,4 @@ export class MainComponent {
       (userRole) => (this.userRole = userRole)
     );
   }
-
 }
