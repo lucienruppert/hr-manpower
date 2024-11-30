@@ -1,2 +1,7 @@
 <navigation></navigation>
-<router-outlet></router-outlet>
+@if (isEmployer) {
+  <employer-view></employer-view>
+}
+@if (isProvider) {
+  <provider-view *ngIf="isProvider"></provider-view>
+}
