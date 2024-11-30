@@ -54,8 +54,8 @@ export class AuthenticationService {
   }
 
   private storeDataLocally(userData: User) {
-    localStorage.setItem('role', userData.role);
-    localStorage.setItem('email', userData.email);
+    localStorage.setItem('hr_role', userData.role);
+    localStorage.setItem('hr_email', userData.email);
   }
 
   private setSubjectValues(userData: User) {
@@ -77,8 +77,8 @@ export class AuthenticationService {
 
   public logoutonClient(): void {
     this.isLoggedIn$.next(false);
-    localStorage.removeItem('role');
-    localStorage.removeItem('email');
+    localStorage.removeItem('hr_role');
+    localStorage.removeItem('hr_email');
     //this.cookieService.delete("PHPSESSID");
     //this.cookieService.delete('PHPSESSID', '/', 'luciendelmar.com');
   }
@@ -94,6 +94,6 @@ export class AuthenticationService {
   }
 
   public getUserEmail(): string {
-    return localStorage.getItem('email')!;
+    return localStorage.getItem('hr_email')!;
   }
 }

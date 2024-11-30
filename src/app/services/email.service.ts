@@ -20,7 +20,7 @@ export class EmailService {
     const formData = new FormData();
     formData.append("email", email);
     formData.append("owner", '1');
-    formData.append("project", 'admin');
+    formData.append("project", 'hr');
     try {
       const result$ = this.http.post<string>(
         `${this.baseUrl}/email/add`,
