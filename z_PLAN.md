@@ -13,8 +13,6 @@
 
 **ADAT STRUKTÚRÁK**
 
-[ ] KÉRDÉS: Van különbség a kétféle user között?
-
 [ ] User
 [ ] employersRequestForOffers
 [ ] hrProvidersPreferences

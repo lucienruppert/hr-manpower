@@ -1,16 +1,16 @@
-import { AuthenticationService } from "./../../services/authentication.service";
+import { AuthenticationService } from "../../services/authentication.service";
 import { Component } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: "navigation",
-  templateUrl: "./navigation.component.html",
-  styleUrls: ["./navigation.component.css"],
+  selector: "sidebar",
+  templateUrl: "./sidebar.component.html",
+  styleUrls: ["./sidebar.component.css"],
   standalone: true,
   imports: [MatButtonModule],
 })
-export class NavigationComponent {
+export class SidebarComponent {
   public userRole: string = "";
 
   constructor(

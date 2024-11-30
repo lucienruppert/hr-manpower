@@ -1,9 +1,9 @@
-import { NavigationComponent } from "./../../components/navigation/navigation.component";
 import { Component } from "@angular/core";
 import { AuthenticationService } from "../../services/authentication.service";
 import { EmployerViewComponent } from "../../components/views/employer-view/employer-view.component";
 import { HrProviderViewComponent } from "../../components/views/hr-provider-view/hr-provider-view.component";
 import { AdminViewComponent } from "../../components/views/admin-view/admin-view.component";
+import { SidebarComponent } from "../../components/sidebar/sidebar.component";
 
 @Component({
   selector: "main",
@@ -11,10 +11,10 @@ import { AdminViewComponent } from "../../components/views/admin-view/admin-view
   styleUrls: ["./main.component.css"],
   standalone: true,
   imports: [
-    NavigationComponent,
     EmployerViewComponent,
     HrProviderViewComponent,
     AdminViewComponent,
+    SidebarComponent,
   ],
 })
 export class MainComponent {
