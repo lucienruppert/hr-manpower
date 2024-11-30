@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { LoginComponent } from '../../components/login/login.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [LoginComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

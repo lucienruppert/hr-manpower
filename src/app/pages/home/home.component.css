@@ -1,3 +1,7 @@
 :host {
-  @apply h-screen flex justify-center items-center;
+  @apply h-screen flex flex-col items-center w-full mt-52;
+}
+
+p {
+  color: var(--secondary);
 }
