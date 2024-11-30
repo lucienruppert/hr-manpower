@@ -24,7 +24,6 @@ export class MainComponent {
     this.authentication.userRole$.subscribe(
       (userRole) => (this.userRole = userRole)
     );
-    console.log('userRole ', this.userRole);
   }
 
 }

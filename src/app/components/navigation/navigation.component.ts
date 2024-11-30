@@ -11,17 +11,22 @@ import { Router } from "@angular/router";
   imports: [MatButtonModule],
 })
 export class NavigationComponent {
+  public userRole: string = "";
+
   constructor(
     private authentication: AuthenticationService,
     private router: Router
-  ) {}
+  ) {
+    this.authentication.userRole$.subscribe(
+      (userRole) => (this.userRole = userRole)
+    );
+  }
 
   public logout(): void {
     this.authentication.logout();
   }
 
   public navigateTo(route: string): void {
-    console.log()
     this.router.navigate([`/main/${route}`]);
   }
 }
