@@ -1,6 +1,6 @@
 **USER REGISTRATION**
 
-[ ] Make Homepage menu (login, registration)
+[x] Create navigation
 [ ] Modify login into popup
 [ ] Create popup registration
 [ ] Create db table

@@ -1,0 +1,12 @@
+:host {
+  @apply w-full flex justify-center;
+  border-bottom: 1px solid var(--secondary);
+}
+
+button {
+  @apply text-white;
+}
+
+.title {
+  color: var(--secondary);
+}
