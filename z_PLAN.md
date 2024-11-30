@@ -9,14 +9,14 @@
 [ ] employerForm
 [ ] hrProviderForm
 [ ] Admin dashboard (backend permission)
-[ ] employerView
-[ ] hrProviderView
  regisztráció
 
 **BACKEND**
 
 [ ] Levélküldő modul/api
 [ ] Előfizetés vizsgálat (cron)
+[ ] Protect APIS: csak a role-juknak megfelelő adatokat tudják lehúzni
+
 
 **ADAT STRUKTÚRÁK**
 

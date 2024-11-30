@@ -12,3 +12,5 @@
 [x] Menu
 [x] Main
 [x] View
+[x] employerView
+[x] hrProviderView
