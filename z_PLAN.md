@@ -15,7 +15,10 @@
 4. Workspace ?
 5. employerForm
 6. hrProviderForm
-7. Admin dashboard
+7. Admin dashboard (backend permission)
+8. employerView
+9. hrProviderView
+
 
 **BACKEND**
 
