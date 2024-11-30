@@ -1,7 +1,10 @@
 <navigation></navigation>
-@if (isEmployer) {
+@if (userRole === 'employer') {
   <employer-view></employer-view>
 }
-@if (isProvider) {
-  <provider-view *ngIf="isProvider"></provider-view>
+@if (userRole === 'provider') {
+  <provider-view></provider-view>
+}
+@if (userRole === 'admin') {
+  <admin-view></admin-view>
 }

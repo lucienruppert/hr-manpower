@@ -2,7 +2,7 @@ import { Router } from "@angular/router";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
-import { CookieService } from "ngx-cookie-service";
+//import { CookieService } from "ngx-cookie-service";
 import { environment } from "../environment";
 import { User } from "../types";
 
@@ -11,24 +11,16 @@ import { User } from "../types";
 })
 export class AuthenticationService {
   public isLoggedIn$ = new BehaviorSubject<boolean>(false);
-  public isEmployer$ = new BehaviorSubject<boolean>(false);
-  public isProvider$ = new BehaviorSubject<boolean>(false);
+  public userRole$ = new BehaviorSubject<string>("");
   private baseUrl: string = environment.BASE_URL;
 
   constructor(
     private http: HttpClient,
-    private cookieService: CookieService,
+    //private cookieService: CookieService,
     private router: Router
   ) {
     if (localStorage.getItem("email")) this.isLoggedIn$.next(true);
-    if (localStorage.getItem("role") === "employer") {
-      this.isEmployer$.next(true);
-      this.isProvider$.next(false);
-    }
-    if (localStorage.getItem("role") === "provider") {
-      this.isProvider$.next(true);
-      this.isEmployer$.next(false);
-    }
+    this.userRole$.next(localStorage.getItem("hr_role")!);
   }
 
   public async login(email: string, password: string): Promise<User> {
@@ -62,15 +54,7 @@ export class AuthenticationService {
 
   private setSubjectValues(userData: User) {
     this.isLoggedIn$.next(true);
-    this.isEmployer$.next(false);
-    if (userData.role === "employer") {
-      this.isEmployer$.next(true);
-      this.isProvider$.next(false);
-    }
-    if (userData.role === "provider") {
-      this.isProvider$.next(true);
-      this.isEmployer$.next(false);
-    }
+    this.userRole$.next(userData.role);
   }
 
   public logout(): void {
@@ -83,8 +67,8 @@ export class AuthenticationService {
     this.isLoggedIn$.next(false);
     localStorage.removeItem("hr_role");
     localStorage.removeItem("hr_email");
-    this.cookieService.delete("PHPSESSID");
-    this.cookieService.delete("PHPSESSID", "/", "luciendelmar.com");
+    //this.cookieService.delete("PHPSESSID");
+    //this.cookieService.delete("PHPSESSID", "/", "luciendelmar.com");
   }
 
   public async logoutOnServer(): Promise<void> {

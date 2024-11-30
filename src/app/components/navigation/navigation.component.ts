@@ -21,6 +21,7 @@ export class NavigationComponent {
   }
 
   public navigateTo(route: string): void {
+    console.log()
     this.router.navigate([`/main/${route}`]);
   }
 }

@@ -14,3 +14,10 @@
 [x] View
 [x] employerView
 [x] hrProviderView
+
+
+**View routing change for employer and hrProvider**
+
+[x] Create users in db
+[x] Show different view for different user types
+

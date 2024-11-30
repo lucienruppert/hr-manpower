@@ -1,9 +1,9 @@
 import { NavigationComponent } from "./../../components/navigation/navigation.component";
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { AuthenticationService } from "../../services/authentication.service";
-import { EmployerViewComponent } from "../../components/employerView/employerView.component";
-import { HrProviderViewComponent } from "../../components/hrProviderView/hrProviderView.component";
-import { NgIf } from "@angular/common";
+import { EmployerViewComponent } from "../../components/views/employerView/employerView.component";
+import { HrProviderViewComponent } from "../../components/views/hrProviderView/hrProviderView.component";
+import { AdminViewComponent } from "../../components/views/admin-view/admin-view.component";
 
 @Component({
   selector: "main",
@@ -14,21 +14,17 @@ import { NgIf } from "@angular/common";
     NavigationComponent,
     EmployerViewComponent,
     HrProviderViewComponent,
-    NgIf
+    AdminViewComponent
   ],
 })
-export class MainComponent implements OnInit {
-  public isEmployer: boolean = false;
-  public isProvider: boolean = false;
+export class MainComponent {
+  public userRole: string = "";
 
-  constructor(private authentication: AuthenticationService) {}
-
-  public ngOnInit(): void {
-    this.authentication.isEmployer$.subscribe(
-      (isEmployer) => (this.isEmployer = isEmployer)
+  constructor(private authentication: AuthenticationService) {
+    this.authentication.userRole$.subscribe(
+      (userRole) => (this.userRole = userRole)
     );
-    this.authentication.isProvider$.subscribe(
-      (isProvider) => (this.isProvider = isProvider)
-    );
+    console.log('userRole ', this.userRole);
   }
+
 }
