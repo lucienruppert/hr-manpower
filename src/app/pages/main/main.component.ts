@@ -1,5 +1,5 @@
-import { NavigationComponent } from './../navigation/navigation.component';
-import { Component } from '@angular/core';
+import { NavigationComponent } from "../../components/navigation/navigation.component";
+import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 
 @Component({
@@ -11,5 +11,4 @@ import { RouterOutlet } from "@angular/router";
 })
 export class MainComponent {
   constructor() {}
-
 }

@@ -1,36 +1,31 @@
-import { Routes } from '@angular/router';
-import { MainComponent } from './components/main/main.component';
-import { GeneralRouteGuardService } from './services/general-route-guard.service';
-import { AuthRedirectGuardService } from './services/auth-redirect-guard.service';
-import { DashboardComponent } from './components/menu-modules/dashboard/dashboard.component';
-import { EmailUploadComponent } from './components/menu-modules/email-upload/email-upload.component';
-import { EmailSendComponent } from './components/menu-modules/email-send/email-send.component';
-import { HomeComponent } from './pages/home/home.component';
+import { Routes } from "@angular/router";
+import { MainComponent } from "./pages/main/main.component";
+import { GeneralRouteGuardService } from "./services/general-route-guard.service";
+import { AuthRedirectGuardService } from "./services/auth-redirect-guard.service";
+import { HomeComponent } from "./pages/home/home.component";
+import { EmployerViewComponent } from "./components/employerView/employerView.component";
+import { HrProviderViewComponent } from "./components/hrProviderView/hrProviderView.component";
 
 export const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: HomeComponent,
     canActivate: [AuthRedirectGuardService],
   },
   {
-    path: 'main',
+    path: "main",
     component: MainComponent,
     canActivate: [GeneralRouteGuardService],
     children: [
       {
-        path: '',
-        component: DashboardComponent,
+        path: "",
+        component: EmployerViewComponent,
       },
       {
-        path: 'email-upload',
-        component: EmailUploadComponent,
-      },
-      {
-        path: 'email-send',
-        component: EmailSendComponent,
+        path: "",
+        component: HrProviderViewComponent,
       },
     ],
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: "**", redirectTo: "", pathMatch: "full" },
 ];
