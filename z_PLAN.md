@@ -1,15 +1,8 @@
-**USER FAJTÁK**
-
-[ ] Admin (Oli és én)
-[ ] Munkáltatók (employer)
-[ ] Szolgáltatók (hrProvider)
-
 **MODULOK**
 
+[ ] User Regisztráció
 [ ] employerForm
 [ ] hrProviderForm
-[ ] Admin dashboard (backend permission)
- regisztráció
 
 **BACKEND**
 

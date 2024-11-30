@@ -20,7 +20,6 @@ export class AuthenticationService {
     private router: Router
   ) {
     if (localStorage.getItem("email")) this.isLoggedIn$.next(true);
-    this.userRole$.next(localStorage.getItem("hr_role")!);
   }
 
   public async login(email: string, password: string): Promise<User> {
@@ -28,8 +27,11 @@ export class AuthenticationService {
     try {
       const result$ = this.http.post<User>(`${this.baseUrl}/login`, formData);
       const userData = await firstValueFrom(result$);
-      this.storeDataLocally(userData);
-      this.setSubjectValues(userData);
+
+      localStorage.setItem("hr_email", userData.email);
+      this.isLoggedIn$.next(true);
+      this.userRole$.next(userData.role);
+
       this.router.navigate(["/main"]);
       return userData;
     } catch (error: unknown) {
@@ -47,16 +49,6 @@ export class AuthenticationService {
     return formData;
   }
 
-  private storeDataLocally(userData: User) {
-    localStorage.setItem("hr_role", userData.role);
-    localStorage.setItem("hr_email", userData.email);
-  }
-
-  private setSubjectValues(userData: User) {
-    this.isLoggedIn$.next(true);
-    this.userRole$.next(userData.role);
-  }
-
   public logout(): void {
     this.logoutonClient();
     this.logoutOnServer();
@@ -65,7 +57,6 @@ export class AuthenticationService {
 
   public logoutonClient(): void {
     this.isLoggedIn$.next(false);
-    localStorage.removeItem("hr_role");
     localStorage.removeItem("hr_email");
     //this.cookieService.delete("PHPSESSID");
     //this.cookieService.delete("PHPSESSID", "/", "luciendelmar.com");

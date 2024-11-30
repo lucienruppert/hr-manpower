@@ -5,6 +5,7 @@ import { AuthRedirectGuardService } from "./services/auth-redirect-guard.service
 import { HomeComponent } from "./pages/home/home.component";
 import { EmployerViewComponent } from "./components/views/employer-view/employer-view.component";
 import { HrProviderViewComponent } from "./components/views/hr-provider-view/hr-provider-view.component";
+import { AdminViewComponent } from "./components/views/admin-view/admin-view.component";
 
 export const routes: Routes = [
   {
@@ -18,12 +19,16 @@ export const routes: Routes = [
     canActivate: [GeneralRouteGuardService],
     children: [
       {
-        path: "employer-view",
+        path: "view/employer",
         component: EmployerViewComponent,
       },
       {
-        path: "provider-view",
+        path: "view/provider",
         component: HrProviderViewComponent,
+      },
+      {
+        path: "view/admin",
+        component: AdminViewComponent,
       },
     ],
   },

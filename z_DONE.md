@@ -20,4 +20,15 @@
 
 [x] Create users in db
 [x] Show different view for different user types
+[x] Rename views
+[x] Ha átírom a rolet, akkor ne engedje megváltoztatni.
+
+**USER FAJTÁK**
+
+[x] Admin (Oli és én)
+[x] Munkáltatók (employer)
+[x] Szolgáltatók (hrProvider)
+
+
+
 

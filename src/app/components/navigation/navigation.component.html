@@ -1,13 +1,13 @@
 <nav class="flex flex-col h-screen cursor-pointer">
   <button (click)="navigateTo('')" class="mb-10">Főoldal</button>
   @if (userRole === "employer") {
-    <button (click)="navigateTo('employer-view')">Munkaadóé</button>
+    <button (click)="navigateTo('view/employer')">Munkaadóé</button>
   }
   @if (userRole === "provider") {
-    <button (click)="navigateTo('provider-view')">Szolgáltatóé</button>
+    <button (click)="navigateTo('view/provider')">Szolgáltatóé</button>
   }
   @if (userRole === "admin") {
-    <button (click)="navigateTo('admin-view')">Adminé</button>
+    <button (click)="navigateTo('view/admin')">Adminé</button>
   }
   <button (click)="logout()" class="logout mt-10">Kilépés</button>
 </nav>
