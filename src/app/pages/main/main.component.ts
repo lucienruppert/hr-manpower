@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
 import { AuthenticationService } from "../../services/authentication.service";
-import { EmployerViewComponent } from "../../components/views/employer-view/employer-view.component";
-import { HrProviderViewComponent } from "../../components/views/hr-provider-view/hr-provider-view.component";
-import { AdminViewComponent } from "../../components/views/admin-view/admin-view.component";
-import { SidebarComponent } from "../../components/sidebar/sidebar.component";
+import { EmployerViewComponent } from "../../components/main/views/employer-view/employer-view.component";
+import { HrProviderViewComponent } from "../../components/main/views/hr-provider-view/hr-provider-view.component";
+import { AdminViewComponent } from "../../components/main/views/admin-view/admin-view.component";
+import { SidebarComponent } from "../../components/main/sidebar/sidebar.component";
 
 @Component({
   selector: "app-main",

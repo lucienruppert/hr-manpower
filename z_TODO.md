@@ -1,7 +1,7 @@
 **USER REGISTRATION**
 
 [x] Create navigation
-[ ] Modify login into popup
+[ ] Modify login into dialog
 [ ] Create popup registration
 [ ] Create db table
 [ ] Create form

@@ -1,4 +1,4 @@
-import { AuthenticationService } from "../../services/authentication.service";
+import { AuthenticationService } from "../../../services/authentication.service";
 import { Component, OnDestroy } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import { Router } from "@angular/router";
