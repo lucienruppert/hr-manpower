@@ -3,8 +3,8 @@
   border-bottom: 1px solid var(--secondary);
 }
 
-button {
-  @apply text-white;
+button, .mat-mdc-button:not(:disabled) {
+  @apply text-gray-300 text-sm;
 }
 
 .title {

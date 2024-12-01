@@ -7,10 +7,10 @@ form {
 }
 input {
   background-color: var(--dark);
-  @apply rounded-md p-2 text-gray-700;
+  @apply rounded-md p-2 text-gray-500;
 }
 ::placeholder {
-  @apply text-sm text-gray-700;
+  @apply text-sm text-gray-500;
 }
 button[type="submit"] {
   background-color: var(--secondary);

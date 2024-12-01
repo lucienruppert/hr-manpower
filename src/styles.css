@@ -20,15 +20,15 @@ body {
   color: var(--white);
 }
 
-/* .cdk-overlay-dark-backdrop {
+.cdk-overlay-dark-backdrop {
   background: rgba(3, 21, 37, 0.8);
-} */
-/*
+} 
+
 cdk-dialog-container {
   position: fixed;
   top: 20%;
   left: calc(50% - 144px);
-} */
+} 
 
 .mat-mdc-checkbox.mat-mdc-checkbox-checked .mdc-checkbox__background,
 .mdc-checkbox__ripple {
@@ -37,7 +37,7 @@ cdk-dialog-container {
 }
 
 .mat-mdc-menu-content {
-  background-color: var(--dark);
+  background-color: var(--lighter);
 }
 
 .mat-mdc-button:not(:disabled) {

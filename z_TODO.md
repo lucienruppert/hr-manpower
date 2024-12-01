@@ -6,3 +6,8 @@
 [ ] Create db table
 [ ] Create form
 [ ] Add backend store.php
+
+
+**TODO FOR LATER**
+
+[ ] Fix mat-button in navigation on homepage
