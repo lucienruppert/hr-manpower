@@ -10,4 +10,4 @@
 
 **TODO FOR LATER**
 
-[ ] Fix mat-button in navigation on homepage
+[ ] Fix mat-button style in navigation and in sidebar as well
