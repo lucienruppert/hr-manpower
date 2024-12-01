@@ -1,10 +1,10 @@
-export type User = {
+export interface User {
   email: string;
   role: string;
-  errors?: Array<string>;
-};
+  errors?: string[];
+}
 
-export type EmailSendingResult = {
+export interface EmailSendingResult {
   sent: string;
-  failed: Array<string>;
-};
+  failed: string[];
+}

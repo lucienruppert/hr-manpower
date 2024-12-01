@@ -6,7 +6,7 @@ import { AdminViewComponent } from "../../components/views/admin-view/admin-view
 import { SidebarComponent } from "../../components/sidebar/sidebar.component";
 
 @Component({
-  selector: "main",
+  selector: "app-main",
   templateUrl: "./main.component.html",
   styleUrls: ["./main.component.css"],
   standalone: true,
@@ -18,7 +18,7 @@ import { SidebarComponent } from "../../components/sidebar/sidebar.component";
   ],
 })
 export class MainComponent {
-  public userRole: string = "";
+  public userRole = "";
 
   constructor(private authentication: AuthenticationService) {
     this.authentication.userRole$.subscribe(
