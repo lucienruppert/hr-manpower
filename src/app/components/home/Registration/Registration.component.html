@@ -1,6 +1,6 @@
 @if (isDialogReady) {
   <main>
-    <form #form="ngForm" (ngSubmit)="submitForm()">
+    <form #form="ngForm" (ngSubmit)="submitForm(form)">
       <button type="button" class="close" (click)="dialogRef.close()">x</button>
       <span class="title">Regisztráció</span>
       <input
@@ -9,13 +9,23 @@
         placeholder="Cég/vállalkozó neve"
         name="company"
         required
-        [ngClass]="{'invalid': form.submitted && !formData.company}"
+        [ngClass]="{ invalid: form.submitted && !formData.company }"
       />
-      <select [(ngModel)]="formData.companyType" name="companyType" required [ngClass]="{'invalid': form.submitted && !formData.companyType}">
+      <select
+        [(ngModel)]="formData.companyType"
+        name="companyType"
+        required
+        [ngClass]="{ invalid: form.submitted && !formData.companyType }"
+      >
         <option value="company" default>Cég</option>
         <option value="soleProprietor">Egyéni vállalkozó</option>
       </select>
-      <select [(ngModel)]="formData.companyRole" name="companyRole" required [ngClass]="{'invalid': form.submitted && !formData.companyRole}">
+      <select
+        [(ngModel)]="formData.companyRole"
+        name="companyRole"
+        required
+        [ngClass]="{ invalid: form.submitted && !formData.companyRole }"
+      >
         <option value="employer">Munkáltató</option>
         <option value="hrProvider">HR Szolgáltató</option>
         <option value="administrator">Lebonyolító</option>
@@ -26,7 +36,7 @@
         placeholder="Kapcsolattartó személy"
         name="contactPerson"
         required
-        [ngClass]="{'invalid': form.submitted && !formData.contactPerson}"
+        [ngClass]="{ invalid: form.submitted && !formData.contactPerson }"
       />
       <input
         type="text"
@@ -34,7 +44,9 @@
         placeholder="Kapcsolattartó beosztás"
         name="contactPosition"
         required
-        [ngClass]="{'invalid': form.submitted && !formData.contactPersonPosition}"
+        [ngClass]="{
+          invalid: form.submitted && !formData.contactPersonPosition,
+        }"
       />
       <input
         type="email"
@@ -42,7 +54,7 @@
         placeholder="E-mail"
         name="email"
         required
-        [ngClass]="{'invalid': form.submitted && !formData.email}"
+        [ngClass]="{ invalid: form.submitted && !formData.email }"
       />
       <input
         type="text"
@@ -50,7 +62,7 @@
         placeholder="Telefonszám"
         name="phone"
         required
-        [ngClass]="{'invalid': form.submitted && !formData.phone}"
+        [ngClass]="{ invalid: form.submitted && !formData.phone }"
       />
       <input
         type="password"
@@ -58,7 +70,7 @@
         placeholder="Jelszó"
         name="password"
         required
-        [ngClass]="{'invalid': form.submitted && !formData.password}"
+        [ngClass]="{ invalid: form.submitted && !formData.password }"
       />
       <button type="submit">Regisztrálok</button>
       <span class="error">{{ errorMessage }}</span>

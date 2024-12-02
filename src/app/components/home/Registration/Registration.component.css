@@ -9,7 +9,8 @@ form {
   color: var(--secondary);
   @apply text-center text-xl font-bold;
 }
-input, select {
+input,
+select {
   background-color: var(--dark);
   @apply rounded-md p-2 text-gray-500 text-sm;
 }

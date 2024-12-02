@@ -8,6 +8,7 @@ import { RegistrationService } from "../../../services/registration.service";
 import { SnackBarService } from "../../../services/snackbar.service";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { CommonModule } from "@angular/common";
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: "app-registration",
@@ -43,21 +44,23 @@ export class RegistrationComponent implements OnInit {
     }, 200);
   }
 
-  public async submitForm(): Promise<void> {
-    this.showSpinner = true;
-    try {
-      await this.registration.register(this.formData);
-      this.snackbar.showSnackBar("Regisztrációd sikerült.");
-      this.dialogRef.close();
-    } catch (error: unknown) {
-      if (typeof error === "string") {
-        this.errorMessage = error;
-      } else if (error instanceof Error) {
-        this.errorMessage = error.message;
-      } else {
-        this.errorMessage = "An unknown error occurred.";
+  public async submitForm(form: NgForm): Promise<void> {
+    if (form.valid) {
+      this.showSpinner = true;
+      try {
+        await this.registration.register(this.formData);
+        this.snackbar.showSnackBar("Regisztrációd sikerült.");
+        this.dialogRef.close();
+      } catch (error: unknown) {
+        if (typeof error === "string") {
+          this.errorMessage = error;
+        } else if (error instanceof Error) {
+          this.errorMessage = error.message;
+        } else {
+          this.errorMessage = "An unknown error occurred.";
+        }
       }
+      this.showSpinner = false;
     }
-    this.showSpinner = false;
   }
 }
