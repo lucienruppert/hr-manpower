@@ -6,8 +6,8 @@
 [x] Create db table
 [x] Change login database table for the new one
 [x] Change the login controller so it uses the new role Field
-[ ] Add backend store.php
-[ ] Add api endpoint to frontend
+[x] Add backend store.php
+[ ] Add api endpoint to frontend yo
 [ ] After test make all the fields mandatory
 
 

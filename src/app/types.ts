@@ -1,6 +1,6 @@
 export interface User {
   email: string;
-  role: string;
+  role?: string;
   errors?: string[];
 }
 

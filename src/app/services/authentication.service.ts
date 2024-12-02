@@ -32,7 +32,7 @@ export class AuthenticationService {
 
       localStorage.setItem(this.EMAIL_KEY, userData.email);
       this.isLoggedIn$.next(true);
-      this.userRole$.next(userData.role);
+      this.userRole$.next(userData.role!);
 
       this.router.navigate(["/main"]);
       return userData;

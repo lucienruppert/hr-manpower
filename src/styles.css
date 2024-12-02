@@ -46,10 +46,13 @@ cdk-dialog-container {
 
 .mdc-snackbar__surface {
   background-color: var(--secondary) !important;
-  border: 1px solid grey;
 }
 
 .mdc-snackbar__label {
   color: white !important;
   text-align: center;
+}
+
+.custom-snackbar {
+  border-radius: 12px;
 }
