@@ -29,6 +29,18 @@
 [x] Munkáltatók (employer)
 [x] Szolgáltatók (hrProvider)
 
+**USER REGISTRATION**
+
+[x] Create navigation
+[x] Modify login into dialog
+[x] Create popup registration
+[x] Create db table
+[x] Change login database table for the new one
+[x] Change the login controller so it uses the new role Field
+[x] Add backend store.php
+[x] Add api endpoint to frontend yo
+[x] After test make all the fields mandatory
+
 
 
 

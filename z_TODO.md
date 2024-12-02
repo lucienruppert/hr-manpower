@@ -1,19 +1,9 @@
-**USER REGISTRATION**
-
-[x] Create navigation
-[x] Modify login into dialog
-[x] Create popup registration
-[x] Create db table
-[x] Change login database table for the new one
-[x] Change the login controller so it uses the new role Field
-[x] Add backend store.php
-[x] Add api endpoint to frontend yo
-[ ] After test make all the fields mandatory
-
 
 [ ] Rename main to dashboard
+[ ] Make admin login data 
+[ ] Profile menu - megváltoztathassa az adatai közül bármit.
 
 **TODO FOR LATER**
 
-[ ] Registration form validation on frontend
+[ ] AT és ÁSZF => checkbox
 [ ] Fix mat-button style in navigation and in sidebar as well
