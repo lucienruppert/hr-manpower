@@ -2,8 +2,48 @@
   <main>
     <form #form="ngForm" (ngSubmit)="submitForm()">
       <button type="button" class="close" (click)="dialogRef.close()">x</button>
-      <input type="text" [(ngModel)]="formData.name" placeholder="Name" name="name" />
-      <input type="email" [(ngModel)]="formData.email" placeholder="Email" name="email" />
+      <input
+        type="text"
+        [(ngModel)]="formData.company"
+        placeholder="Cég/vállalkozó neve"
+        name="company"
+      />
+      <input
+        type="text"
+        [(ngModel)]="formData.companyType"
+        placeholder="Cég vagy egyéni vállalkozó"
+        name="companyType"
+      />
+      <input
+        type="text"
+        [(ngModel)]="formData.companyRole"
+        placeholder="Cég/vállalkozó szerepköre"
+        name="companyRole"
+      />
+      <input
+        type="text"
+        [(ngModel)]="formData.contactPerson"
+        placeholder="Kapcsolattartó személy"
+        name="contactPerson"
+      />
+      <input
+        type="text"
+        [(ngModel)]="formData.contactPersonPosition"
+        placeholder="Kapcsolattartó beosztás"
+        name="contactPosition"
+      />
+      <input
+        type="email"
+        [(ngModel)]="formData.email"
+        placeholder="E-mail"
+        name="email"
+      />
+      <input
+        type="text"
+        [(ngModel)]="formData.phone"
+        placeholder="Telefonszám"
+        name="phone"
+      />
       <input
         type="password"
         [(ngModel)]="formData.password"
