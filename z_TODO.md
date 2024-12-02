@@ -1,12 +1,14 @@
 **USER REGISTRATION**
 
 [x] Create navigation
-[ ] Modify login into dialog
+[x] Modify login into dialog
 [ ] Create popup registration
 [ ] Create db table
 [ ] Create form
 [ ] Add backend store.php
 
+
+[ ] Rename main to dashboard
 
 **TODO FOR LATER**
 
