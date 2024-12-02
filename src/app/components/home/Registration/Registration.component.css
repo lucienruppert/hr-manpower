@@ -3,11 +3,15 @@
 }
 form {
   background-color: var(--lighter);
-  @apply flex flex-col w-72 rounded-lg p-3 relative pt-10;
+  @apply flex flex-col w-72 rounded-lg p-3 relative;
+}
+.title {
+  color: var(--secondary);
+  @apply text-center text-xl font-bold;
 }
 input, select {
   background-color: var(--dark);
-  @apply rounded-md p-2 text-gray-500;
+  @apply rounded-md p-2 text-gray-500 text-sm;
 }
 ::placeholder {
   @apply text-sm text-gray-500;

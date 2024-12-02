@@ -2,6 +2,7 @@
   <main>
     <form #form="ngForm" (ngSubmit)="submitForm()">
       <button type="button" class="close" (click)="dialogRef.close()">x</button>
+      <span class="title">Regisztráció</span>
       <input
         type="text"
         [(ngModel)]="formData.company"
@@ -9,7 +10,7 @@
         name="company"
       />
       <select [(ngModel)]="formData.companyType" name="companyType">
-        <option value="company">Cég</option>
+        <option value="company" default>Cég</option>
         <option value="soleProprietor">Egyéni vállalkozó</option>
       </select>
       <select [(ngModel)]="formData.companyRole" name="companyRole">

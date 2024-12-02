@@ -2,6 +2,7 @@
   <main>
     <form #form="ngForm" (ngSubmit)="submitForm()">
       <button type="button" class="close" (click)="dialogRef.close()">x</button>
+      <span class="title">Bejelentkezés</span>
       <input type="email" [(ngModel)]="email" placeholder="Email" name="name" />
       <input
         type="password"

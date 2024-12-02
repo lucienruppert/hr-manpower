@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.isDialogReady = true;
-    }, 0);
+    }, 200);
   }
 
   public async submitForm(): Promise<void> {

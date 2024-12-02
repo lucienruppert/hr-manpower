@@ -15,8 +15,8 @@ import { RegistrationFormData } from "../../../types";
 export class RegistrationComponent implements OnInit {
   public formData: RegistrationFormData = {
     company: "",
-    companyType: null,
-    companyRole: null,
+    companyType: "company",
+    companyRole: "employer",
     email: "",
     password: "",
     phone: "",
@@ -32,7 +32,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.isDialogReady = true;
-    }, 100);
+    }, 200);
   }
 
   public async submitForm(): Promise<void> {
