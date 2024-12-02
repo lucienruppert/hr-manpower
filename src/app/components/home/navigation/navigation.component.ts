@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import { Dialog } from "@angular/cdk/dialog";
-import { RegistrationComponent } from "../Registration/Registration.component";
+import { RegistrationComponent } from "../registration/registration.component";
 import { LoginComponent } from "../login/login.component";
 
 @Component({
