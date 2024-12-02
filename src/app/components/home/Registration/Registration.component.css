@@ -33,3 +33,6 @@ button[type="submit"] {
 .mat-warn {
   --mdc-circular-progress-active-indicator-color: var(--secondary);
 }
+.invalid {
+  border: 1px solid red;
+}

@@ -7,17 +7,14 @@ import { RegistrationFormData } from "../../../types";
 import { RegistrationService } from "../../../services/registration.service";
 import { SnackBarService } from "../../../services/snackbar.service";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-registration",
   templateUrl: "./registration.component.html",
   styleUrls: ["./registration.component.css"],
   standalone: true,
-  imports: [
-    FormsModule,
-    MatProgressSpinnerModule,
-    NgIf, MatSnackBarModule
-  ],
+  imports: [FormsModule, MatProgressSpinnerModule, NgIf, MatSnackBarModule, CommonModule],
 })
 export class RegistrationComponent implements OnInit {
   public formData: RegistrationFormData = {

@@ -8,12 +8,14 @@
         [(ngModel)]="formData.company"
         placeholder="Cég/vállalkozó neve"
         name="company"
+        required
+        [ngClass]="{'invalid': form.submitted && !formData.company}"
       />
-      <select [(ngModel)]="formData.companyType" name="companyType">
+      <select [(ngModel)]="formData.companyType" name="companyType" required [ngClass]="{'invalid': form.submitted && !formData.companyType}">
         <option value="company" default>Cég</option>
         <option value="soleProprietor">Egyéni vállalkozó</option>
       </select>
-      <select [(ngModel)]="formData.companyRole" name="companyRole">
+      <select [(ngModel)]="formData.companyRole" name="companyRole" required [ngClass]="{'invalid': form.submitted && !formData.companyRole}">
         <option value="employer">Munkáltató</option>
         <option value="hrProvider">HR Szolgáltató</option>
         <option value="administrator">Lebonyolító</option>
@@ -23,30 +25,40 @@
         [(ngModel)]="formData.contactPerson"
         placeholder="Kapcsolattartó személy"
         name="contactPerson"
+        required
+        [ngClass]="{'invalid': form.submitted && !formData.contactPerson}"
       />
       <input
         type="text"
         [(ngModel)]="formData.contactPersonPosition"
         placeholder="Kapcsolattartó beosztás"
         name="contactPosition"
+        required
+        [ngClass]="{'invalid': form.submitted && !formData.contactPersonPosition}"
       />
       <input
         type="email"
         [(ngModel)]="formData.email"
         placeholder="E-mail"
         name="email"
+        required
+        [ngClass]="{'invalid': form.submitted && !formData.email}"
       />
       <input
         type="text"
         [(ngModel)]="formData.phone"
         placeholder="Telefonszám"
         name="phone"
+        required
+        [ngClass]="{'invalid': form.submitted && !formData.phone}"
       />
       <input
         type="password"
         [(ngModel)]="formData.password"
         placeholder="Jelszó"
         name="password"
+        required
+        [ngClass]="{'invalid': form.submitted && !formData.password}"
       />
       <button type="submit">Regisztrálok</button>
       <span class="error">{{ errorMessage }}</span>
