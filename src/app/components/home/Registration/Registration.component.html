@@ -2,14 +2,15 @@
   <main>
     <form #form="ngForm" (ngSubmit)="submitForm()">
       <button type="button" class="close" (click)="dialogRef.close()">x</button>
-      <input type="email" [(ngModel)]="email" placeholder="Email" name="name" />
+      <input type="text" [(ngModel)]="formData.name" placeholder="Name" name="name" />
+      <input type="email" [(ngModel)]="formData.email" placeholder="Email" name="email" />
       <input
         type="password"
-        [(ngModel)]="password"
+        [(ngModel)]="formData.password"
         placeholder="Jelszó"
         name="password"
       />
-      <button type="submit">Bejelentkezem</button>
+      <button type="submit">Regisztrálok</button>
       <span class="error">{{ errorMessage }}</span>
       <span class="spinner" *ngIf="showSpinner"
         ><mat-spinner color="warn"></mat-spinner

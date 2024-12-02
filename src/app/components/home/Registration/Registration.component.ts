@@ -5,6 +5,14 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { AuthenticationService } from "../../../services/authentication.service";
 import { DialogRef } from "@angular/cdk/dialog";
 
+interface RegistrationFormData {
+  // Add properties for each form field
+  name: string;
+  email: string;
+  password: string;
+  // Add other form fields as needed
+}
+
 @Component({
   selector: "app-registration",
   templateUrl: "./registration.component.html",
@@ -13,8 +21,12 @@ import { DialogRef } from "@angular/cdk/dialog";
   imports: [FormsModule, MatProgressSpinnerModule, NgIf],
 })
 export class RegistrationComponent implements OnInit {
-  public email = "";
-  public password = "";
+  public formData: RegistrationFormData = {
+    name: "",
+    email: "",
+    password: "",
+    // Initialize other form fields as needed
+  };
   public errorMessage = "";
   public showSpinner = false;
   public isDialogReady = false;
@@ -33,8 +45,10 @@ export class RegistrationComponent implements OnInit {
   public async submitForm(): Promise<void> {
     this.showSpinner = true;
     try {
-      await this.authentication.login(this.email, this.password);
-      this.dialogRef.close();
+      // Create a JSON object from the form data
+      const jsonData = JSON.stringify(this.formData);
+      console.log(jsonData);
+      // Add logic to handle the form data as needed
     } catch (error: unknown) {
       if (typeof error === "string") {
         this.errorMessage = error;
