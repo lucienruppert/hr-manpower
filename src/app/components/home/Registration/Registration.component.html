@@ -8,18 +8,15 @@
         placeholder="Cég/vállalkozó neve"
         name="company"
       />
-      <input
-        type="text"
-        [(ngModel)]="formData.companyType"
-        placeholder="Cég vagy egyéni vállalkozó"
-        name="companyType"
-      />
-      <input
-        type="text"
-        [(ngModel)]="formData.companyRole"
-        placeholder="Cég/vállalkozó szerepköre"
-        name="companyRole"
-      />
+      <select [(ngModel)]="formData.companyType" name="companyType">
+        <option value="company">Cég</option>
+        <option value="soleProprietor">Egyéni vállalkozó</option>
+      </select>
+      <select [(ngModel)]="formData.companyRole" name="companyRole">
+        <option value="employer">Munkáltató</option>
+        <option value="hrProvider">HR Szolgáltató</option>
+        <option value="administrator">Lebonyolító</option>
+      </select>
       <input
         type="text"
         [(ngModel)]="formData.contactPerson"

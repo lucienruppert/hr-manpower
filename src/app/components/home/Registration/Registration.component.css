@@ -5,7 +5,7 @@ form {
   background-color: var(--lighter);
   @apply flex flex-col w-72 rounded-lg p-3 relative pt-10;
 }
-input {
+input, select {
   background-color: var(--dark);
   @apply rounded-md p-2 text-gray-500;
 }

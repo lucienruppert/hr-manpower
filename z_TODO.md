@@ -2,10 +2,11 @@
 
 [x] Create navigation
 [x] Modify login into dialog
-[ ] Create popup registration
+[x] Create popup registration
 [ ] Create db table
 [ ] Create form
 [ ] Add backend store.php
+[ ] After test make all the fields mandatory
 
 
 [ ] Rename main to dashboard

@@ -11,8 +11,8 @@ export interface EmailSendingResult {
 
 export interface RegistrationFormData {
   company: string;
-  companyType: string;
-  companyRole: string;
+  companyType: 'company' | 'soleProprietor' | null;
+  companyRole: 'employer' | 'hrProvider' | 'administrator' | null;
   contactPerson: string;
   contactPersonPosition: string;
   phone: string;

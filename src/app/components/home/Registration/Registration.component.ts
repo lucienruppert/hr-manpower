@@ -5,7 +5,6 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { DialogRef } from "@angular/cdk/dialog";
 import { RegistrationFormData } from "../../../types";
 
-
 @Component({
   selector: "app-registration",
   templateUrl: "./registration.component.html",
@@ -16,8 +15,8 @@ import { RegistrationFormData } from "../../../types";
 export class RegistrationComponent implements OnInit {
   public formData: RegistrationFormData = {
     company: "",
-    companyType: "",
-    companyRole: "",
+    companyType: null,
+    companyRole: null,
     email: "",
     password: "",
     phone: "",
@@ -28,14 +27,12 @@ export class RegistrationComponent implements OnInit {
   public showSpinner = false;
   public isDialogReady = false;
 
-  constructor(
-    public dialogRef: DialogRef
-  ) {}
+  constructor(public dialogRef: DialogRef) {}
 
   ngOnInit() {
     setTimeout(() => {
       this.isDialogReady = true;
-    }, 0);
+    }, 100);
   }
 
   public async submitForm(): Promise<void> {
@@ -53,5 +50,15 @@ export class RegistrationComponent implements OnInit {
       }
     }
     this.showSpinner = false;
+    this.formData = {
+      company: "",
+      companyType: null,
+      companyRole: null,
+      email: "",
+      password: "",
+      phone: "",
+      contactPerson: "",
+      contactPersonPosition: "",
+    };
   }
 }
