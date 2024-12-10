@@ -18,15 +18,17 @@ export class RegistrationService {
 
   public async register(formData: RegistrationFormData): Promise<User> {
     try {
-      const result$ = this.http.post<User>(`${this.baseUrl}/registration`, formData);
+      const result$ = this.http.post<User>(
+        `${this.baseUrl}/registration`,
+        formData
+      );
       const response = await firstValueFrom(result$);
       this.router.navigate(["/"]);
       return response;
     } catch (error: unknown) {
-      if (error instanceof HttpErrorResponse && error.error?.errors) {
-        throw error.error.errors.join(" ");
-      }
-      throw new Error("Váratlan hiba történt a regisztráció során. Kérjük próbáld újra.");
+      const typedError = error as HttpErrorResponse;
+      if (typedError.error) throw typedError.error;
+      return typedError.error;
     }
   }
 }

@@ -19,3 +19,7 @@ export interface RegistrationFormData {
   email: string;
   password: string;
 };
+
+export interface ErrorResponse {
+  status: string;
+}

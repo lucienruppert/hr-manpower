@@ -3,7 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { NgIf } from "@angular/common";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { DialogRef } from "@angular/cdk/dialog";
-import { RegistrationFormData } from "../../../types";
+import { ErrorResponse, RegistrationFormData } from "../../../types";
 import { RegistrationService } from "../../../services/registration.service";
 import { SnackBarService } from "../../../services/snackbar.service";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
@@ -52,12 +52,14 @@ export class RegistrationComponent implements OnInit {
         this.snackbar.showSnackBar("Regisztrációd sikerült.");
         this.dialogRef.close();
       } catch (error: unknown) {
-        if (typeof error === "string") {
+        if (error instanceof Object && "status" in error) {
+          this.errorMessage = (error as ErrorResponse)["status"];
+        } else if (typeof error === "string") {
           this.errorMessage = error;
         } else if (error instanceof Error) {
           this.errorMessage = error.message;
         } else {
-          this.errorMessage = "An unknown error occurred.";
+          this.errorMessage = "Ismeretlen hiba történt.";
         }
       }
       this.showSpinner = false;
