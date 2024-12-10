@@ -2,6 +2,8 @@
 [ ] Rename main to dashboard
 [ ] Make admin login data 
 [ ] Profile menu - megváltoztathassa az adatai közül bármit.
+[ ] Hibás login szöveget lefordítani.
+
 
 **TODO FOR LATER**
 
